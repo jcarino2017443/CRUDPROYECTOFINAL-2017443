@@ -1,7 +1,7 @@
 <%-- 
     Document   : editar
-    Created on : 29/08/2020, 02:41:56 PM
-    Author     : Carino
+    Created on : 02-sep-2020, 13:47:48
+    Author     : Bryan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

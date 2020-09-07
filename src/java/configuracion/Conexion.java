@@ -1,10 +1,17 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package configuracion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
+/**
+ *
+ * @author LAPTOP
+ */
 public class Conexion {
     Connection conexion;
     
@@ -22,5 +29,5 @@ public class Conexion {
     public Connection getConnection(){
         return conexion;
     }
-           
+    
 }
