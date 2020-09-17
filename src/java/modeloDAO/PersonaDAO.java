@@ -48,24 +48,63 @@ public class PersonaDAO implements CRUD {
         return listaPersona;
     }
 
-    @Override
+   @Override
     public Persona list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "select * from Persona where codigoPersona = " + id;
+        try{
+            con = conect.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                nuevaPersona.setCodigoPersona(rs.getInt("codigoPersona"));
+                nuevaPersona.setDPI(rs.getString("DPI"));
+                nuevaPersona.setNombrePersona(rs.getString("nombrePersona"));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return nuevaPersona;
     }
 
+    
     @Override
     public boolean add(Persona per) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "insert into Persona(DPI,nombrePersona) values('" + per.getDPI() + "','" + per.getNombrePersona() + "')";
+        try{
+            con = conect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean edit(Persona per) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "update Persona set DPI = '" + per.getDPI() + "', nombrePersona = '" + per.getNombrePersona() + "' where codigoPersona = " + per.getCodigoPersona();
+        try{
+            con = conect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
+
 
     @Override
     public boolean remove(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      String sql = "delete from Persona where codigoPersona = " + id;
+        try{
+            con = conect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
     
 }
