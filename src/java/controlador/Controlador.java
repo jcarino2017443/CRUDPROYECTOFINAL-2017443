@@ -8,15 +8,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Persona;
+import modeloDAO.PersonaDAO;
 
 /**
  *
  * @author Carino
  */
 public class Controlador extends HttpServlet {
-    String listar = "View/listar.jsp";
-    String add = "View/add.jsp";
-    String edit = "View/edit.jsp";
+    String listar = "view/listar.jsp";
+    String add = "view/add.jsp";
+    String edit = "view/editar.jsp";
+    Persona nuevapersona = new Persona();
+    PersonaDAO nuevapersonaDao = new PersonaDAO();
+    int codigoPersona;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -59,6 +64,32 @@ public class Controlador extends HttpServlet {
         String acceso = "";
         String action = request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso = add;
+        }else if(action.equalsIgnoreCase("Agregar")){
+            String DPI = request.getParameter("txtDPI");
+            String nombre = request.getParameter("txtNombre");
+            nuevapersona.setDPI(DPI);
+            nuevapersona.setNombrePersona(nombre);
+            nuevapersonaDao.add(nuevapersona);
+            acceso = listar;  
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("codPer", request.getParameter("codigoPersona"));
+            acceso = edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            codigoPersona = Integer.parseInt(request.getParameter("txtCodigoPersona"));
+            String DPI = request.getParameter("txtDPI");
+            String Nombre = request.getParameter("txtNombre");
+            nuevapersona.setCodigoPersona(codigoPersona);
+            nuevapersona.setDPI(DPI);
+            nuevapersona.setNombrePersona(Nombre);
+            nuevapersonaDao.edit(nuevapersona);
+            acceso = listar;
+        }else if(action.equalsIgnoreCase("eliminar")){
+            codigoPersona = Integer.parseInt(request.getParameter("codigoPersona"));
+            nuevapersona.setCodigoPersona(codigoPersona);
+            nuevapersonaDao.remove(codigoPersona);
             acceso = listar;
         }
         
