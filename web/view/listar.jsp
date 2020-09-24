@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar
     Created on : 2/09/2020, 02:53:07 PM
-    Author     : 15cab
+    Author     : Juarez
 --%>
 
 <%@page import="modeloDAO.PersonaDAO"%>
@@ -13,6 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>Pagina de Listar</title>
     </head>
     <body>
