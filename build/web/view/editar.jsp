@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <title>Pagina de Editar</title>
+        <title></title>
     </head>
     <body>
         <div class="container">
@@ -22,7 +22,7 @@
                 int codPersona = Integer.parseInt((String)request.getAttribute("codPer"));
                 Persona nuevaPersona = (Persona)nuevapersonaDao.list(codPersona);
             %>
-            <h1>Pagina de Editar</h1>
+            <h1></h1>
                 <form action="Controlador">
                     <Strong>DPI:</Strong><br>
                     <input class="form-control" type="text" name="txtDPI" value="<%=nuevaPersona.getDPI()%>"><br><br>
