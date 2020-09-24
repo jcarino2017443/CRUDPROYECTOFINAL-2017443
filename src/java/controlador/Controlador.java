@@ -13,7 +13,7 @@ import modeloDAO.PersonaDAO;
 
 /**
  *
- * @author Carino
+ * @author Saravia
  */
 public class Controlador extends HttpServlet {
     String listar = "view/listar.jsp";

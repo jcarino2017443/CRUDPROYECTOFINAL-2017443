@@ -17,7 +17,7 @@ public class Conexion {
     
     public Conexion() {
         try{
-            Class.forName("com.mysql.jdbc.driver");
+            Class.forName("com.mysql.jdbc.Driver");
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBRegistro?useSSL=false","root","admin");
             
         }catch(Exception e){

@@ -9,18 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>Pagina de Agregar</title>
     </head>
     <body>
-        <div>
+        <div class="container">
+            <div class="col-lg-5"> 
             <h1>Agregar un Registro</h1>
             <form action="Controlador">
-                DPI:<br>
-                <input type="text" name="txtDPI"><br>
-                Nombres:<br>
-                <input type="text" name="txtNombre"><br><br>
-                <input type="submit" name="accion" value="Agregar"><br>
+                <Strong>DPI:</Strong><br>
+                <input class="form-control" type="text" name="txtDPI"><br>
+                <Strong><br>Nombres:</Strong><br>
+                <input class="form-control" type="text" name="txtNombre"><br><br>
+                <input class="btn btn-primary" type="submit" name="accion" value="Agregar"><br>
             </form>
+            </div>
         </div>
     </body>
 </html>
